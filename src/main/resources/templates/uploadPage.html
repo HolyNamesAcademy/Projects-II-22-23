@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>PlantBook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+    label {
+        display: inline-block;
+        width: 200px;
+        margin: 5px;
+        text-align: left;
+    }
+    input[type=text], input[type=password], select {
+        display: inline-block;
+        width: 200px;
+    }
+    input[type=radio] {
+        margin-left: 45px;
+    }
+    input[type=checkbox] {
+        margin-right: 190px;
+    }
+    button {
+        padding: 5px;
+        margin: 10px;
+    }
+</style>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<body>
+
+    <h1>PlantBook</h1>
+<form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
+    <div class = "Picture">
+        <label> Insert Photo</label>
+        <input type ="photo" th:field="*{photo}">
+    </div>
+    <br>
+    <div class = "plantType">
+        <label> Enter Plant Type: </label>
+        <input type="text" th:field="*{plantType}" placeholder ="cactus" >
+    </div>
+    <br>
+    <div class = "Age">
+        <label>Enter Plant Age: </label>
+        <input type="number" th:field="*{plantAge}" >
+    </div>
+    <br>
+    <div class = "Caption">
+        <label> Caption: </label>
+        <textarea th:field="*{caption}" rows="2" cols="15"></textarea>
+    </div>
+    <br>
+    <div class = "lifeStatus">
+        <select th:field="*{Plant Life Select}">
+        <option selected ="">Plant Life Status />
+        <option th:value="alive" th:text="Alive"/>
+        <option th:value="watered" th:text="Watered"/>
+        <option th:value="dead" th:text="Dead" />
+        </select>
+    </div>
+    <br>
+    <div class ="submit">
+        <button class="submitButton" type="submit">Upload Post</button>
+    </div>
+
+</form>
+</body>
+</html>
