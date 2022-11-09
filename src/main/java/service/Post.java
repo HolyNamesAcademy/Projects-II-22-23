@@ -1,10 +1,7 @@
 package service;
-
 public class Post {
-    public Integer PostId;
-    public int PlantId, Age;
-    public String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
-
+    private int PostId, PlantId, Age;
+    private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
     public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         this.PostId = PostId;
         this.PlantId = PlantId;
@@ -16,19 +13,17 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
-
-    public Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
-        PostId = null; // "created" when post is added to the database
-        this.PlantId = PlantId;
-        this.Age = Age;
-        this.PlantName = PlantName;
-        this.Species = Species;
-        this.Status = Status;
-        this.NameOfUser = NameOfUser;
-        this.Caption = Caption;
-        this.PhotoUrl = PhotoUrl;
+    public Post(){
+        PostId = 0;
+        PlantId = 0;
+        Age = 0;
+        PlantName = "";
+        Species = "";
+        Status = "";
+        NameOfUser = "";
+        Caption = "";
+        PhotoUrl = "";
     }
-
     // all the get methods
     public int getPostID() {
         return PostId;
@@ -57,33 +52,34 @@ public class Post {
     public String getPhotoUrl() {
         return PhotoUrl;
     }
-
     // all the set methods
-    public void setPostID(int PostId) {
+    public void getPostID(int PostId) {
         this.PostId = PostId;
     }
-    public void setPlantID(int PlantId) {
+    public void getPlantID(int PlantId) {
         this.PlantId = PlantId;
     }
-    public void setAge(int age) {
+    public void getAge(int age) {
         this.Age = Age;
     }
-    public void setPlantName(String PlantName) {
+    public void getPlantName(String PlantName) {
         this.PlantName = PlantName;
     }
-    public void setSpecies(String Species) {
+    public void getSpecies(String Species) {
         this.Species = Species;
     }
-    public void setStatus(String Status) {
+    public void getStatus(String Status) {
         this.Status = Status;
     }
-    public void setNameOfUser(String NameOfUser) {
+    public void getNameOfUser(String NameOfUser) {
         this.NameOfUser = NameOfUser;
     }
-    public void setCaption(String Caption) {
+    public void getCaption(String Caption) {
         this.Caption = Caption;
     }
-    public void setPhotoUrl(String PhotoUrl) {
+    public void getPhotoUrl(String PhotoUrl) {
         this.PhotoUrl = PhotoUrl;
     }
 }
+
+

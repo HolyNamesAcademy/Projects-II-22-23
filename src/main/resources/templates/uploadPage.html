@@ -36,7 +36,7 @@
 <form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
     <div class = "Picture">
         <label> Insert Photo</label>
-        <input type ="photo" th:field="*{photo}">
+        <input type ="text" th:field="*{PhotoUrl}">
     </div>
     <br>
     <div class = "plantType">
@@ -46,12 +46,12 @@
     <br>
     <div class = "Age">
         <label>Enter Plant Age: </label>
-        <input type="number" th:field="*{plantAge}" >
+        <input type="number" th:field="*{Age}" >
     </div>
     <br>
     <div class = "Caption">
         <label> Caption: </label>
-        <textarea th:field="*{caption}" rows="2" cols="15"></textarea>
+        <textarea th:field="*{Caption}" rows="2" cols="15"></textarea>
     </div>
     <br>
     <div class = "lifeStatus">

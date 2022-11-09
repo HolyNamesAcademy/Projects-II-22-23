@@ -29,11 +29,10 @@ public class MainController {
 	public String uploadPage(Model m){
 		Post post = new Post();
 		m.addAttribute("plant");
-		return "/uploadPage";
 
 		List<String> listStatus = Arrays.asList("Alive", "Dead", "Watered", "Un-Watered");
 		m.addAttribute("listStatus", listStatus);
-
+		m.addAttribute("post", post);
 		return "uploadPage";
 	}
 	@PostMapping("/uploadPage")
