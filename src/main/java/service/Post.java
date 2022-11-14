@@ -80,6 +80,9 @@ public class Post {
     public void getPhotoUrl(String PhotoUrl) {
         this.PhotoUrl = PhotoUrl;
     }
+    @Override
+    public String toString(){
+        return "Post [ Photo URL=" + PhotoUrl + ", Plant Type=" + Species + ", Age=" + Age + ", Caption=" + Caption + ", Life Status=" + Status + "]";
+    }
 }
-
 

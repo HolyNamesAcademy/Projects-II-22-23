@@ -3,27 +3,8 @@
 <head>
     <title>PlantBook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style type="text/css">
-    label {
-        display: inline-block;
-        width: 200px;
-        margin: 5px;
-        text-align: left;
-    }
-    input[type=text], input[type=password], select {
-        display: inline-block;
-        width: 200px;
-    }
-    input[type=radio] {
-        margin-left: 45px;
-    }
-    input[type=checkbox] {
-        margin-right: 190px;
-    }
-    button {
-        padding: 5px;
-        margin: 10px;
-    }
+    <style type="text/css" >
+
 </style>
 </head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -36,12 +17,12 @@
 <form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
     <div class = "Picture">
         <label> Insert Photo</label>
-        <input type ="text" th:field="*{PhotoUrl}">
+        <input type ="text" th:field="*{PhotoUrl}" required>
     </div>
     <br>
     <div class = "plantType">
         <label> Enter Plant Type: </label>
-        <input type="text" th:field="*{plantType}" placeholder ="cactus" >
+        <input type="text" th:field="*{Species}" placeholder ="cactus" required >
     </div>
     <br>
     <div class = "Age">
@@ -55,10 +36,10 @@
     </div>
     <br>
     <div class = "lifeStatus">
-        <select th:field="*{Plant Life Select}">
-        <option selected ="">Plant Life Status />
-        <option th:value="alive" th:text="Alive"/>
-        <option th:value="watered" th:text="Watered"/>
+        <select th:field="*{Status}" required >
+        <option selected value=""> Plant Life Status </option>
+        <option th:value="alive"  th:text="Alive"/>
+        <option th:value="watered"  th:text="Watered"/>
         <option th:value="dead" th:text="Dead" />
         </select>
     </div>
