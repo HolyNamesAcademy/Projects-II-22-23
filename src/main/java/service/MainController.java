@@ -36,8 +36,10 @@ public class MainController {
 		return "uploadPage";
 	}
 	@PostMapping("/uploadPage")
-	public String submitUploadPage(@ModelAttribute("post") Post post){
+	public String submitUploadPage(@ModelAttribute("post") Post post, Model m){
 		System.out.print(post);
+
+		m.addAttribute("post", post);
 		return "uploadSuccess";
 	}
 }
