@@ -9,14 +9,12 @@
 <body>
 <div align="center">
   <h2> Upload Succeeded!</h2>
-  <span>Photo URL:</span><span th:text="${Post.PhotoUrl}"></span><br/>
-  <span>PlantId:</span><span th:text="${Post.PlantId}"></span><br/>
-  <span>Age:</span><span th:number="${Post.Age}"></span><br/>
-  <span>Plant Name:</span><span th:text="${Post.PlantName}"></span><br/>
-  <span>Species:</span><span th:text="${Post.Species}"></span><br/>
-  <span>Status:</span><span th:text="${Post.Status}"></span><br/>
-  <span>Name of User:</span><span th:text="${Post.NameOfUser}"></span><br/>
-  <span>Caption:</span></span><span th:text="${Post.Caption}"></span><br/>
+  <span>Photo URL:</span><span th:text="${post.PhotoUrl}"></span><br/>
+  <span>Age:</span><span th:number="${post.Age}"></span><br/>
+  <span>Plant Name:</span><span th:text="${post.PlantName}"></span><br/>
+  <span>Species:</span><span th:text="${post.Species}"></span><br/>
+  <span>Status:</span><span th:text="${post.Status}"></span><br/>
+  <span>Caption:</span></span><span th:text="${post.Caption}"></span><br/>
 </div>
 </body>
 </html>
