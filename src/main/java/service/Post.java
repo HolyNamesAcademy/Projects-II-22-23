@@ -2,9 +2,9 @@ package service;
 public class Post {
     private int PostId, PlantId, Age;
     private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
-    public Post(int PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
-        this.PostId = PostId;
-        this.PlantId = PlantId;
+    public Post(int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+
+        //this.PlantId = PlantId;
         this.Age = Age;
         this.PlantName = PlantName;
         this.Species = Species;
@@ -13,9 +13,7 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
-    public Post(){
-        PostId = 0;
-        PlantId = 0;
+   public Post(){
         Age = 0;
         PlantName = "";
         Species = "";
@@ -24,6 +22,7 @@ public class Post {
         Caption = "";
         PhotoUrl = "";
     }
+
     // all the get methods
     public int getPostID() {
         return PostId;
