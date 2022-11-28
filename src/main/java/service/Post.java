@@ -13,7 +13,7 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
-   public Post(){
+   /*public Post(){
         Age = 0;
         PlantName = "";
         Species = "";
@@ -22,7 +22,7 @@ public class Post {
         Caption = "";
         PhotoUrl = "";
     }
-
+*/
     // all the get methods
     public int getPostID() {
         return PostId;

@@ -31,15 +31,20 @@ public class MainController {
 		m.addAttribute("plant");
 
 		List<String> listStatus = Arrays.asList("Alive", "Dead", "Watered", "Un-Watered");
+		//m.addAttribute("post", post);
 		m.addAttribute("listStatus", listStatus);
-		m.addAttribute("post", post);
+
 		return "uploadPage";
 	}
 	@PostMapping("/uploadPage")
 	public String submitUploadPage(@ModelAttribute("post") Post post, Model m){
+		m.addAttribute("Age", post.getAge());
+		m.addAttribute("PlantName", post.getPlantName());
+		m.addAttribute("Species", post.getSpecies());
+		m.addAttribute("NameOfUser", post.getNameOfUser());
+		m.addAttribute("Caption", post.getCaption());
+		m.addAttribute("PhotoUrl", post.getPhotoUrl());
 		System.out.print(post);
-
-		m.addAttribute("post", post);
 		return "uploadSuccess";
 	}
 }
