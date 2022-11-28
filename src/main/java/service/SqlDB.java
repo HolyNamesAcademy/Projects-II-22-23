@@ -14,7 +14,7 @@ public class SqlDB {
 
     @Autowired
     public SqlDB(Environment env) {
-        hostName = env.getProperty("db.hostname");
+        hostName = env.getProperty("db.ostname");
         dbName = env.getProperty("db.db_name");
         user = env.getProperty("db.user");
         password = env.getProperty("db.password");
