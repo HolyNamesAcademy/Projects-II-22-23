@@ -21,8 +21,8 @@ public class Post {
         NameOfUser = "";
         Caption = "";
         PhotoUrl = "";
-    }
-*/
+    }*/
+
     // all the get methods
     public int getPostID() {
         return PostId;

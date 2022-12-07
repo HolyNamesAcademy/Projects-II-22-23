@@ -17,7 +17,7 @@
 <form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
     <div class = "Picture">
         <label> Insert Photo</label>
-        <input type ="text" th:field="*{PhotoUrl}" required>
+        <input type ="text" th:field="*{PhotoUrl}" required > <!-- hates this line when the default constructor is uncommented in post-->
     </div>
     <br>
     <div class = "Name">
@@ -32,7 +32,7 @@
     <br>
     <div class = "plantType">
         <label> Enter Plant Type: </label>
-        <input type="text" th:field="*{Species}" placeholder ="cactus" required >
+        <input type="text" th:field="*{Species}" placeholder ="cactus"  required>
     </div>
     <br>
     <div class = "Age">
@@ -46,7 +46,7 @@
     </div>
     <br>
     <div class = "lifeStatus">
-        <select th:field="*{Status}" required >
+        <select th:field="*{Status}" required>
         <option selected value=""> Plant Life Status </option>
         <option th:value="alive"  th:text="Alive"/>
         <option th:value="watered"  th:text="Watered"/>
