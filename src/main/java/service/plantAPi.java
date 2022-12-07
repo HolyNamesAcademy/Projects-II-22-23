@@ -5,7 +5,10 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
+import java.io.*;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 public class plantAPi {
     public static void api(){
        try {
@@ -23,4 +26,5 @@ public class plantAPi {
            System.out.println("API failed");
        }
     }
+
 }
