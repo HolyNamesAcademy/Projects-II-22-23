@@ -27,11 +27,11 @@ public class MainController {
 		return "hello";}
 	@GetMapping ("/uploadPage")
 	public String uploadPage(Model m){
-		Post post = new Post(); // needs arguments but if i keep the default then the upload success page doesnt work
+		Post post = new Post(); // needs arguments but if i keep the default then the upload success page doesn't work
 		m.addAttribute("plant");
 
 		List<String> listStatus = Arrays.asList("Alive", "Dead", "Watered", "Un-Watered");
-		//m.addAttribute("post", post);
+		m.addAttribute("post", post);
 		m.addAttribute("listStatus", listStatus);
 
 		return "uploadPage";

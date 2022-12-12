@@ -17,7 +17,7 @@
 <form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
     <div class = "Picture">
         <label> Insert Photo</label>
-        <input type ="text" th:field="*{PhotoUrl}" required > <!-- hates this line when the default constructor is uncommented in post-->
+        <input type ="text" th:field="*{PhotoUrl}" required >
     </div>
     <br>
     <div class = "Name">
