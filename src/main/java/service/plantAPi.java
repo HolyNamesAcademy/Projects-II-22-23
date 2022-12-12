@@ -16,7 +16,8 @@ public class plantAPi {
                    .method("GET", HttpRequest.BodyPublishers.noBody())
                    .build();
            HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-           System.out.println(response.body());
+           //System.out.println(response.body());
+           System.out.println("API connected");
        }
        catch (Exception e) {
            System.out.println("API failed");
