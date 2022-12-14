@@ -58,7 +58,7 @@ public class Post {
     public void setPlantID(int PlantId) {
         this.PlantId = PlantId;
     }
-    public void setAge(int age) {
+    public void setAge(int Age) {
         this.Age = Age;
     }
     public void setPlantName(String PlantName) {
@@ -73,7 +73,7 @@ public class Post {
     public void setNameOfUser(String NameOfUser) {
         this.NameOfUser = NameOfUser;
     }
-    public void getCaption(String Caption) {
+    public void setCaption(String Caption) {
         this.Caption = Caption;
     }
     public void setPhotoUrl(String PhotoUrl) {
