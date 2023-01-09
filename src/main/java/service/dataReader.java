@@ -4,30 +4,33 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 public class dataReader {
-    public static void jsonReader(JSONObject apiInfo) throws ParseException {
+    public static speciesInfo jsonReader(JSONObject apiInfo) throws ParseException {
         JSONParser reader = new JSONParser();
         JSONObject apiData = (JSONObject)reader.parse(String.valueOf(apiInfo));
-        String speciesName = (String)apiData.get("categories");
-        String latinName = (String)apiData.get("Latin name");
-        String family = (String)apiData.get("Family");
-        String origin = (String)apiData.get("Origin");
-        String climate = (String)apiData.get("Climat");
+        speciesInfo speciesData = new speciesInfo();
+        speciesData.setCommonName((String)apiData.get("categories"));
+        speciesData.setLatinName((String)apiData.get("Latin name"));
+        speciesData.setFamily((String)apiData.get("Family"));
+        speciesData.setOrigin((String)apiData.get("Origin"));
+        speciesData.setClimate((String)apiData.get("Climat"));
+
         //fyi 'climat' is not a typo -- this is what the api has listed as the key
 
         //make these two int arrays bc there are two values given
         String tempMax;
         String tempMin;
         //
+        speciesData.setIdealLight((String)apiData.get("Light ideal"));
+        speciesData.setToleratedLight((String)apiData.get("Light tolered"));
 
-        String idealLight = (String)apiData.get("Light ideal");
-        String toleratedLight = (String)apiData.get("Light tolered");
         //again not a typo on our end -- how the api has the key written
 
-        String watering = (String)apiData.get("Watering");
-        String pests = (String)apiData.get("Insects");
-        String diseases = (String)apiData.get("Disease");
-        String imgUrl = (String)apiData.get("img");
-        String description = (String)apiData.get("Description");
+        speciesData.setWatering((String)apiData.get("Watering"));
+        speciesData.setPests((String)apiData.get("Insects"));
+        speciesData.setDiseases((String)apiData.get("Disease"));
+        speciesData.setImgUrl((String)apiData.get("img"));
+        speciesData.setDescription((String)apiData.get("Description"));
+        return speciesData;
     }
     
 }

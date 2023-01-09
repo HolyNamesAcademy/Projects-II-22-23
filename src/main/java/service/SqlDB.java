@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
+import java.sql.*;
+
 @Component
 public class SqlDB {
     private String hostName;
@@ -22,7 +24,16 @@ public class SqlDB {
         connectionUrl = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
                 + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
     }
+   public void insertSpecies(String [] speciesInfo){
+       try {
+           Connection connection = DriverManager.getConnection(connectionUrl);
+           Statement statement = connection.createStatement();
+           String query = "INSERT INTO SpeciesData (SPECIES NAME, LATIN NAME, FAMILY, ORIGIN, CLIMATE, TEMPMAX, TEMPMIN, IDEAL LIGHT, TOLERATED LIGHT, WATERING, PESTS, DISEASES, IMG URL, DESCRIPTION) VALUES (";
+       } catch (SQLException e) {
+           throw new RuntimeException(e);
+       }
 
+   }
     // TODO: Add methods to talk to your DB here
 
 }
