@@ -9,8 +9,8 @@ public class speciesInfo {
     public String family = "";
     public String origin = "";
     public String climate = "";
-    public int tempMax;
-    public int tempMin;
+    public double [] tempMax;
+    public double [] tempMin;
     public String idealLight = "";
     public String toleratedLight = "";
     public String watering = "";
@@ -34,10 +34,10 @@ public class speciesInfo {
     public void setClimate(String info){
         climate = info;
     }
-    public void setTempMax(int temp){
+    public void setTempMax(double [] temp){
         tempMax = temp;
     }
-    public void setTempMin(int temp){
+    public void setTempMin(double [] temp){
         tempMin = temp;
     }
     public void setIdealLight(String light){
@@ -98,10 +98,10 @@ public class speciesInfo {
     public String getDescription(){
         return description;
     }
-    public int getTempMax(){
+    public double [] getTempMax(){
         return tempMax;
     }
-    public int getTempMin(){
+    public double [] getTempMin(){
         return tempMin;
     }
 

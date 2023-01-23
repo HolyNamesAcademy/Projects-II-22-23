@@ -17,8 +17,8 @@ public class dataReader {
         //fyi 'climat' is not a typo -- this is what the api has listed as the key
 
         //make these two int arrays bc there are two values given
-        String tempMax;
-        String tempMin;
+        double [] tempMax;
+        double [] tempMin;
         //
         speciesData.setIdealLight((String)apiData.get("Light ideal"));
         speciesData.setToleratedLight((String)apiData.get("Light tolered"));
