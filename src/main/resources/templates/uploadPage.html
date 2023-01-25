@@ -3,7 +3,20 @@
 <head>
     <title>PlantBook</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style type="text/css" ></style>
+    <style type="text/css">
+        h1 {
+        width: 200px;
+        border: 6px solid DarkGreen;
+        box-sizing: border-box;}
+        form {
+        width: 500px;
+        height: 800px;
+        border: 5px solid DarkOliveGreen;
+        box-sizing: border-box;
+        }
+        p2{
+        color: red;}
+    </style>
 
 </head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -11,7 +24,7 @@
 <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <body>
-<div align="center" margin="auto" border="1px solid green">
+<div align="center">
     <h1>PlantBook</h1>
 <form action="#" th:action="@{/uploadPage}" method="post" th:object="${post}">
     <div class = "Picture">
@@ -21,17 +34,17 @@
     <br>
     <div class = "Name">
         <label>Enter your name:</label><br>
-        <input type = "text" th:field="*{NameOfUser}">
+        <input type = "text" th:field="*{NameOfUser}" maxlength="50">
     </div>
     <br>
     <div class = "PlantName">
         <label>Enter the plant's name:</label><br>
-        <input type = "text" th:field="*{PlantName}">
+        <input type = "text" th:field="*{PlantName}" maxlength="50">
     </div>
     <br>
     <div class = "plantType">
         <label> Enter Plant Type: </label><br>
-        <input type="text" th:field="*{Species}" placeholder ="Cactus"  required>
+        <input type="text" th:field="*{Species}" placeholder ="Cactus" maxlength="50" required>
     </div>
     <br>
     <div class = "Age">
@@ -42,7 +55,7 @@
     <div class = "Caption">
         <label> Caption: </label><br>
         <textarea th:field="*{Caption}" rows="2" cols="40" maxlength="400"></textarea>
-        <p2> *400 character limit</p2>
+        <br><p2> *200 character limit</p2>
     </div>
     <br>
     <div class = "lifeStatus">
