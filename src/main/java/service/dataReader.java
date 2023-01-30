@@ -15,14 +15,11 @@ public class dataReader {
         speciesData.setFamily((String)apiData.get("Family"));
         speciesData.setOrigin((String)apiData.get("Origin"));
         speciesData.setClimate((String)apiData.get("Climat"));
-        apiData.getJSONObject()
+        speciesData.setTempMax((double [])apiData.get("Temperature Max"));
+        speciesData.setTempMin((double [])apiData.get("Temperature Min"));
 
         //fyi 'climat' is not a typo -- this is what the api has listed as the key
 
-        //make these two int arrays bc there are two values given
-        double [] tempMax;
-        double [] tempMin;
-        //
         speciesData.setIdealLight((String)apiData.get("Light ideal"));
         speciesData.setToleratedLight((String)apiData.get("Light tolered"));
 
