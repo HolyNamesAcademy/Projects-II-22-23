@@ -29,6 +29,8 @@ public class SqlDB {
            Connection connection = DriverManager.getConnection(connectionUrl);
            Statement statement = connection.createStatement();
            String query = "INSERT INTO SpeciesData (SPECIES NAME, LATIN NAME, FAMILY, ORIGIN, CLIMATE, TEMPMAX, TEMPMIN, IDEAL LIGHT, TOLERATED LIGHT, WATERING, PESTS, DISEASES, IMG URL, DESCRIPTION) VALUES (" + speciesInfo.getCommonName() + "," + speciesInfo.getLatinName() + "," + speciesInfo.getFamily() + "," + speciesInfo.getOrigin() + "," + speciesInfo.getClimate() + "," + speciesInfo.getTempMax() + "," + speciesInfo.getTempMin() + "," + speciesInfo.getIdealLight() + "," + speciesInfo.getToleratedLight() + "," + speciesInfo.getWatering() + "," + speciesInfo.getPests() + "," + speciesInfo.getDiseases() + "," + speciesInfo.getImgUrl() + "," + speciesInfo.getDescription() + ")";
+           statement.executeUpdate(query);
+           connection.close();
        } catch (SQLException e) {
            throw new RuntimeException(e);
        }
