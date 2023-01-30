@@ -24,11 +24,11 @@ public class SqlDB {
         connectionUrl = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
                 + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
     }
-   public void insertSpecies(String [] speciesInfo){
+   public void insertSpecies(speciesInfo speciesInfo){
        try {
            Connection connection = DriverManager.getConnection(connectionUrl);
            Statement statement = connection.createStatement();
-           String query = "INSERT INTO SpeciesData (SPECIES NAME, LATIN NAME, FAMILY, ORIGIN, CLIMATE, TEMPMAX, TEMPMIN, IDEAL LIGHT, TOLERATED LIGHT, WATERING, PESTS, DISEASES, IMG URL, DESCRIPTION) VALUES (";
+           String query = "INSERT INTO SpeciesData (SPECIES NAME, LATIN NAME, FAMILY, ORIGIN, CLIMATE, TEMPMAX, TEMPMIN, IDEAL LIGHT, TOLERATED LIGHT, WATERING, PESTS, DISEASES, IMG URL, DESCRIPTION) VALUES (" + speciesInfo.getCommonName() + "," + speciesInfo.getLatinName() + "," + speciesInfo.getFamily() + "," + speciesInfo.getOrigin() + "," + speciesInfo.getClimate() + "," + speciesInfo.getTempMax() + "," + speciesInfo.getTempMin() + "," + speciesInfo.getIdealLight() + "," + speciesInfo.getToleratedLight() + "," + speciesInfo.getWatering() + "," + speciesInfo.getPests() + "," + speciesInfo.getDiseases() + "," + speciesInfo.getImgUrl() + "," + speciesInfo.getDescription() + ")";
        } catch (SQLException e) {
            throw new RuntimeException(e);
        }
