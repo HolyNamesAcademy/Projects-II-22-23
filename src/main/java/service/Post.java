@@ -1,10 +1,17 @@
 package service;
-public class Post {
-    private int PostId, PlantId, Age;
-    private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
-    public Post(int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
 
+public class Post {
+    private Integer PostId;
+    private int PlantId, Age;
+    private String PlantName, Species, Status, NameOfUser, Caption, PhotoUrl;
+    
+    public Post(int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
         //this.PlantId = PlantId;
+    }
+
+    public Post(Integer PostId, int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+        this.PostId = PostId;
+        this.PlantId = PlantId;
         this.Age = Age;
         this.PlantName = PlantName;
         this.Species = Species;
@@ -13,7 +20,10 @@ public class Post {
         this.Caption = Caption;
         this.PhotoUrl = PhotoUrl;
     }
+
    public Post(){
+        PostId = null;
+        PlantId = 0; 
         Age = 0;
         PlantName = "";
         Species = "";
@@ -21,6 +31,18 @@ public class Post {
         NameOfUser = "";
         Caption = "";
         PhotoUrl = "";
+}
+
+    public Post(int PlantId, int Age, String PlantName, String Species, String Status, String NameOfUser, String Caption, String PhotoUrl) {
+        PostId = null; // "created" when post is added to the database
+        this.PlantId = PlantId;
+        this.Age = Age;
+        this.PlantName = PlantName;
+        this.Species = Species;
+        this.Status = Status;
+        this.NameOfUser = NameOfUser;
+        this.Caption = Caption;
+        this.PhotoUrl = PhotoUrl;
     }
 
     // all the get methods
@@ -51,6 +73,7 @@ public class Post {
     public String getPhotoUrl() {
         return PhotoUrl;
     }
+
     // all the set methods
     public void setPostID(int PostId) {
         this.PostId = PostId;
@@ -79,9 +102,9 @@ public class Post {
     public void setPhotoUrl(String PhotoUrl) {
         this.PhotoUrl = PhotoUrl;
     }
+
     @Override
     public String toString(){
         return "Post [ Photo URL=" + PhotoUrl + ", Plant Type=" + Species + ", Age=" + Age + ", Caption=" + Caption + ", Life Status=" + Status + "]";
     }
 }
-

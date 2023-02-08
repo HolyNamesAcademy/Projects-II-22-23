@@ -45,6 +45,8 @@ public class MainController {
 		m.addAttribute("Caption", post.getCaption());
 		m.addAttribute("PhotoUrl", post.getPhotoUrl());
 		System.out.print(post);
+
+		sqlDB.uploadPost(post);
 		return "uploadSuccess";
 	}
 }
