@@ -55,7 +55,6 @@ public class SqlDB {
 
         try {
             connect = DriverManager.getConnection(connectionUrl);
-
             Statement st = connect.createStatement();
             ResultSet rs = st.executeQuery("Select * from Post");
             
@@ -68,22 +67,11 @@ public class SqlDB {
                 rs.getString("PhotoURL"));
 
                 posts.put(postID, post);
-
             }
-            /*
-            ResultSet rstest = st.getResultSet();
-            rstest.afterLast();
-            GETLASTINSERTED:
-            while(rstest.previous()){
-                System.out.println(rstest.getObject(1));
-                break GETLASTINSERTED;//to read only the last row
-            } */
-
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
         }
-
         return posts;
     }
 
