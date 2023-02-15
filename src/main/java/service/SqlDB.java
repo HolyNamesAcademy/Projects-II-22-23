@@ -28,7 +28,7 @@ public class SqlDB {
 
     /*
      * Take created post information and add it into the database
-     * @param line - 
+     * @param line - takes Post object
      */ 
     public void uploadPost(Post post) {
         Connection connect = null;
@@ -48,10 +48,14 @@ public class SqlDB {
         }
     }
 
+    /*
+     * Retrieve all the posts from the database
+     * @return - returns a TreeMap (key = postID, value = post)
+     */ 
     public TreeMap<Integer, Post> viewPosts() {
         Connection connect = null;
 
-        TreeMap<Integer, Post> posts = new TreeMap<>(); // key = postID, value = post
+        TreeMap<Integer, Post> posts = new TreeMap<>();
 
         try {
             connect = DriverManager.getConnection(connectionUrl);
@@ -75,17 +79,17 @@ public class SqlDB {
         return posts;
     }
 
-    public void deletePosts(Post post) {
+     /*
+     * Find the row with matching postID and delete it from the database
+     * @param line - takes an int for postID
+     */ 
+    public void deletePosts(int postID) {
         Connection connect = null;
         try {
             connect = DriverManager.getConnection(connectionUrl);
 
-            // creating the query
-            String query1 = "DELETE FROM Post WHERE PostID=" + post.getPostID() + 
-            ", PlantID=" + post.getPlantID() + ", Age=" + post.getAge() + 
-            ", PlantName=" + post.getPlantName() + " Species, Status, NameOfUser, Caption, PhotoURL";
+            String query1 = "DELETE FROM Post WHERE PostID=" + postID;
 
-            // deleting the post to the table
             Statement st = connect.createStatement();
             st.execute(query1, Statement.RETURN_GENERATED_KEYS);
         } catch (Exception e) {
