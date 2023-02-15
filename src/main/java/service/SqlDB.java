@@ -3,7 +3,7 @@ package service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.ArrayList;
 import java.sql.*;
 
@@ -48,10 +48,10 @@ public class SqlDB {
         }
     }
 
-    public HashMap<Integer, Post> viewPosts() {
+    public TreeMap<Integer, Post> viewPosts() {
         Connection connect = null;
 
-        HashMap<Integer, Post> posts = new HashMap<>(); // key = postID, value = post
+        TreeMap<Integer, Post> posts = new TreeMap<>(); // key = postID, value = post
 
         try {
             connect = DriverManager.getConnection(connectionUrl);
