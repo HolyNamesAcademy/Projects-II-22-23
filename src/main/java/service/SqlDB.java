@@ -40,10 +40,7 @@ public class SqlDB {
 
             // adding the post to the table
             Statement st = connect.createStatement();
-            st.execute(query1, Statement.RETURN_GENERATED_KEYS); // check what this returns (returns a boolean)
-
-            //TODO: get PostID and assigned it
-            
+            st.execute(query1, Statement.RETURN_GENERATED_KEYS);          
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
@@ -57,7 +54,18 @@ public class SqlDB {
 
         try {
             connect = DriverManager.getConnection(connectionUrl);
-
+            /*
+            boolean b = st.execute(query1);
+            
+            st.execute("Select * from Post");
+            ResultSet rstest = st.getResultSet();
+            rstest.afterLast();
+            GETLASTINSERTED:
+            while(rstest.previous()){
+                System.out.println(rstest.getObject(1));
+                break GETLASTINSERTED;//to read only the last row
+            } 
+            */
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
