@@ -25,7 +25,9 @@ public class MainController {
 	public String hello(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
 		model.addAttribute("name", name);
 
-		return "hello";}
+		return "hello";
+	}
+
 	@GetMapping ("/uploadPage")
 	public String uploadPage(Model m){
 		Post post = new Post(); // needs arguments but if i keep the default then the upload success page doesn't work
@@ -37,6 +39,7 @@ public class MainController {
 
 		return "uploadPage";
 	}
+	
 	@PostMapping("/uploadPage")
 	public String submitUploadPage(@ModelAttribute("post") Post post, Model m){
 		m.addAttribute("Age", post.getAge());
