@@ -98,11 +98,16 @@ public class SqlDB {
         }
     }
 
-    public void updatePosts() {
+    /*
+     * Update the caption of the post (edit function)
+     * @param line - the id of the post to change caption, the new caption
+     */ 
+    public void updatePosts(int postID, String caption) {
         Connection connect = null;
         try {
             connect = DriverManager.getConnection(connectionUrl);
 
+            String query = "UPDATE Post SET Caption = '" + caption + "' WHERE PostID = " + postID;
         } catch (Exception e) {
             System.err.println("Got an error in tags query! ");
             System.err.println(e.getMessage());
