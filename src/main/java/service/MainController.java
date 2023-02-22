@@ -85,8 +85,10 @@ public class MainController {
 		TreeMap<Integer, Post> post = sqlDB.viewPosts();
 
 		ArrayList<Post> posts = new ArrayList<>();
-		for (int i = 0; i < post.size(); i++) {
-			posts.add(post.get(i));
+		for (int i = 0; i < 1; i++) {
+			Post plant = post.get(i);
+			posts.add(plant);
+			System.out.println(plant.PlantName, plant.PhotoUrl, plant.Caption);
 		}
 
 		model.addAttribute("posts", posts);
@@ -99,7 +101,9 @@ public class MainController {
 
 		ArrayList<Post> posts = new ArrayList<>();
 		for (int i = 0; i < post.size(); i++) {
-			posts.add(post.get(i));
+			Post plant = post.get(i);
+			posts.add(plant);
+			
 		}
 
 		for(Post p : posts) {
