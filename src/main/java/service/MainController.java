@@ -64,7 +64,7 @@ public class MainController {
 	public respHttpResponse<String> getResponse() {return response;}
 	 */
 
-	 /*
+	 
 	@GetMapping("/feed")
 	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
 		model.addAttribute("Clarence", name);
@@ -76,9 +76,9 @@ public class MainController {
 		posts.add(plant2);
 		model.addAttribute("posts", posts);
 		return "/feed";
-	} */
+	}
 
-
+	/* 
 	@GetMapping("/feed") // Elizabeth's testing for viewPost (not working)
 	public String feed(@RequestParam(name="Clarence", required=false, defaultValue="planty") String name, Model model){
 		model.addAttribute("Clarence", name);
@@ -95,7 +95,7 @@ public class MainController {
 		return "/feed";
 	}
 
-	@GetMapping("/test")
+	@GetMapping("/test") // this successful prints the wanted array
 	public String test(Model m) {
 		TreeMap<Integer, Post> post = sqlDB.viewPosts();
 
@@ -110,5 +110,5 @@ public class MainController {
 			System.out.println(p);
 		}
 		return "index";
-	}
+	} */
 }
