@@ -41,7 +41,7 @@ public class Post {
         this.PhotoUrl = PhotoUrl;
     }
 
-    // all the get methods
+    // all the getter methods
     public int getPostID() {
         return PostId;
     }
@@ -70,7 +70,7 @@ public class Post {
         return PhotoUrl;
     }
 
-    // all the set methods
+    // all the setter methods
     public void setPostID(int PostId) {
         this.PostId = PostId;
     }
