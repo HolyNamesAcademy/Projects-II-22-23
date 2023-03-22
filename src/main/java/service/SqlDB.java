@@ -30,10 +30,13 @@ public class SqlDB {
        try {
            Connection connection = DriverManager.getConnection(connectionUrl);
            Statement statement = connection.createStatement();
-           String query = "INSERT INTO SpeciesData (SPECIES NAME, LATIN NAME, FAMILY, ORIGIN, CLIMATE, TEMPMAX, TEMPMIN, IDEAL LIGHT, TOLERATED LIGHT, WATERING, PESTS, DISEASES, IMG URL, DESCRIPTION) VALUES (" + speciesInfo.getCommonName() + "," + speciesInfo.getLatinName() + "," + speciesInfo.getFamily() + "," + speciesInfo.getOrigin() + "," + speciesInfo.getClimate() + "," + Arrays.toString(speciesInfo.getTempMax()) + "," + Arrays.toString(speciesInfo.getTempMin()) + "," + speciesInfo.getIdealLight() + "," + speciesInfo.getToleratedLight() + "," + speciesInfo.getWatering() + "," + speciesInfo.getPests() + "," + speciesInfo.getDiseases() + "," + speciesInfo.getImgUrl() + "," + speciesInfo.getDescription() + ")";
+           String query = "INSERT INTO dbo.SpeciesData (SPECIES NAME, LATIN NAME, FAMILY, ORIGIN, CLIMATE, TEMPMAX, TEMPMIN, IDEAL LIGHT, TOLERATED LIGHT, WATERING, PESTS, DISEASES, IMG URL, DESCRIPTION) VALUES (" + speciesInfo.getCommonName() + "," + speciesInfo.getLatinName() + "," + speciesInfo.getFamily() + "," + speciesInfo.getOrigin() + "," + speciesInfo.getClimate() + "," + Arrays.toString(speciesInfo.getTempMax()) + "," + Arrays.toString(speciesInfo.getTempMin()) + "," + speciesInfo.getIdealLight() + "," + speciesInfo.getToleratedLight() + "," + speciesInfo.getWatering() + "," + speciesInfo.getPests() + "," + speciesInfo.getDiseases() + "," + speciesInfo.getImgUrl() + "," + speciesInfo.getDescription() + ")";
+           System.out.println(query);
            statement.executeUpdate(query);
            connection.close();
+           System.out.print("db updated");
        } catch (SQLException e) {
+           System.out.println("error inserting into db");
            throw new RuntimeException(e);
        }
 
@@ -48,7 +51,7 @@ public class SqlDB {
             Connection connection = DriverManager.getConnection(connectionUrl);
             Statement statement = connection.createStatement();
             speciesInfo plant = new speciesInfo();
-            String query = "SELECT * FROM SpeciesData WHERE SPECIES NAME = '" + commonName + "';"; //not sure what query to write here
+            String query = "SELECT * FROM dbo.SpeciesData WHERE SPECIES NAME = '" + commonName + "';"; //not sure what query to write here
            ResultSet data = statement.executeQuery(query);
            double [] tempMax;
            double [] tempMin;

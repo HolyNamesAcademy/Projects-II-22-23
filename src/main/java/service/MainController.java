@@ -1,10 +1,15 @@
 package service;
 
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.io.IOException;
+import java.util.ArrayList;
 
 @Controller
 public class MainController {
@@ -25,12 +30,16 @@ public class MainController {
 	}
 
 
+	//@GetMapping("/api")
+	//public String callAPI() {
+		//plantAPi.api();
+		//return "Hello";
+	//}
 	@GetMapping("/api")
-	public String callAPI() {
-		plantAPi.api();
-		return "Hello";
+	public void fillApi() throws IOException, InterruptedException, ParseException {
+	ArrayList<speciesInfo> plants = dataReader.jsonReaderGetAll(plantAPi.getAll());
+	sqlDB.insertMultipleSpecies(plants);
 	}
-
 	/* function httpGet(Url)
 	{
 		var xmlHttp = new XMLHttpRequest();

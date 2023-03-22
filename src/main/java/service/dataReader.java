@@ -1,48 +1,50 @@
 package service;
-import java.io.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 public class dataReader {
-    public static speciesInfo jsonReaderSinglePlant(JSONObject apiInfo) throws ParseException {
-        JSONParser reader = new JSONParser();
-        JSONObject apiData = (JSONObject)reader.parse(String.valueOf(apiInfo));
+    public static speciesInfo jsonReaderSinglePlant(JSONObject apiData){
+        System.out.print(apiData);
         speciesInfo speciesData = new speciesInfo();
-        speciesData.setCommonName((String)apiData.get("Common name(fr.)"));
-        speciesData.setLatinName((String)apiData.get("Latin name"));
-        speciesData.setFamily((String)apiData.get("Family"));
-        speciesData.setOrigin((String)apiData.get("Origin"));
-        speciesData.setClimate((String)apiData.get("Climat"));
-        speciesData.setTempMax((double [])apiData.get("Temperature Max"));
-        speciesData.setTempMin((double [])apiData.get("Temperature Min"));
-
+        speciesData.setCommonName(String.valueOf(apiData.get("Common name")));
+        speciesData.setLatinName(String.valueOf(apiData.get("Latin name")));
+        speciesData.setFamily(String.valueOf(apiData.get("Family")));
+        speciesData.setOrigin(String.valueOf(apiData.get("Origin")));
+        speciesData.setClimate(String.valueOf(apiData.get("Climat")));
+        //if(apiData.get("Temperature Max") != null){
+           // speciesData.setTempMax((double [])apiData.get("Temperature Max"));
+        //}
+       // if(apiData.get("Temperature Min") != null) {
+            //speciesData.setTempMin((double[]) apiData.get("Temperature Min"));
+        //}
         //fyi 'climat' is not a typo -- this is what the api has listed as the key
 
-        speciesData.setIdealLight((String)apiData.get("Light ideal"));
-        speciesData.setToleratedLight((String)apiData.get("Light tolered"));
+        //speciesData.setIdealLight(String.valueOf(apiData.get("Light ideal")));
+        //speciesData.setToleratedLight(String.valueOf(apiData.get("Light tolered")));
 
         //again not a typo on our end -- how the api has the key written
 
-        speciesData.setWatering((String)apiData.get("Watering"));
-        speciesData.setPests((String)apiData.get("Insects"));
-        speciesData.setDiseases((String)apiData.get("Disease"));
-        speciesData.setImgUrl((String)apiData.get("img"));
-        speciesData.setDescription((String)apiData.get("Description"));
+        //.setWatering(String.valueOf(apiData.get("Watering")));
+        //speciesData.setPests(String.valueOf(apiData.get("Insects")));
+        //speciesData.setDiseases(String.valueOf(apiData.get("Disease")));
+        speciesData.setImgUrl(String.valueOf(apiData.get("Img")));
+        speciesData.setDescription(String.valueOf(apiData.get("Description")));
         return speciesData;
     }
-    public static ArrayList<speciesInfo> jsonReaderGetAll(JSONObject apiOutput) throws ParseException {
-        JSONParser reader = new JSONParser();
-        JSONObject apiData = (JSONObject)reader.parse(String.valueOf(apiOutput));
-        int size = apiData.size();
+    public static ArrayList<speciesInfo> jsonReaderGetAll(JSONArray apiData){
+        Iterator<Object> plants = apiData.iterator();
         speciesInfo plant = new speciesInfo();
+        JSONObject testPlant = new JSONObject();
         ArrayList <speciesInfo> plantData = new ArrayList<>();
-        for(int i = 0; i < size; i++){
-           plant = jsonReaderSinglePlant((JSONObject) apiData.get(i));
-           plantData.add(plant);
+        while(plants.hasNext()){
+            testPlant = (JSONObject)plants.next();
+            plant = jsonReaderSinglePlant(testPlant);
+            System.out.println(plant);
+            plantData.add(plant);
         }
         return plantData;
     }
