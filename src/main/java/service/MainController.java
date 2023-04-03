@@ -74,6 +74,8 @@ public class MainController {
 			System.out.println(plant.getCaption());
 		}
 
+		model.addAttribute("posts", posts);
+
 			return "/feed";
 		}
 
