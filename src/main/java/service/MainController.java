@@ -35,10 +35,14 @@ public class MainController {
 		//plantAPi.api();
 		//return "Hello";
 	//}
-	//@GetMapping("/api")
+	@GetMapping("/api")
+	public void api(){
+
+	}
 	//public void fillApi() throws IOException, InterruptedException, ParseException {
-	//ArrayList<speciesInfo> plants = dataReader.jsonReaderGetAll(plantAPi.getAll());
-	//sqlDB.insertMultipleSpecies(plants);
+		//ArrayList<speciesInfo> plants = dataReader.jsonReaderGetAll(plantAPi.getAll());
+		//sqlDB.insertMultipleSpecies(plants);
+	//}
 	//public void testSearch(){
 		//String name = "Janet Craig";
 		//speciesInfo plant;
