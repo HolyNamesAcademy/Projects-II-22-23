@@ -34,7 +34,7 @@ public class plantAPi {
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
+        //System.out.println(response.body());
         JSONArray jsonObj = new JSONArray(String.valueOf(response.body()));
         return jsonObj;
     }
