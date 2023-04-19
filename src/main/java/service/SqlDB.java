@@ -50,17 +50,21 @@ public class SqlDB {
             Connection connection = DriverManager.getConnection(connectionUrl);
             Statement statement = connection.createStatement();
             speciesInfo plant = new speciesInfo();
-            String query = "SELECT * FROM dbo.SpeciesData WHERE SPECIES NAME = '" + commonName + "';"; //not sure what query to write here
-           ResultSet data = statement.executeQuery(query);
-           plant.setCommonName(data.getString("SPECIES_NAME"));
-           plant.setLatinName(data.getString("LATIN_NAME"));
-           plant.setFamily(data.getString("FAMILY"));
-           plant.setOrigin(data.getString("ORIGIN"));
-           plant.setClimate(data.getString("CLIMATE"));
-           plant.setImgUrl(data.getString("IMAGE_URL"));
-           plant.setDescription(data.getString("DESCRIPTION"));
-           return plant;
+            String query = "SELECT * FROM PlantSpeciesData \n WHERE SPECIES_NAME=\'" + commonName + "\';";
+            ResultSet data = statement.executeQuery(query);
+            while(data.next()) {
+                plant.setCommonName(data.getString(2));
+                plant.setLatinName(data.getString(3));
+                plant.setFamily(data.getString(4));
+                plant.setOrigin(data.getString(5));
+                plant.setClimate(data.getString(6));
+                plant.setImgUrl(data.getString(7));
+                plant.setDescription(data.getString(8));
+            }
+            data.close();
+            return plant;
         } catch(SQLException e){
+            System.out.println("Failure to select");
             return null;
         }
    }
