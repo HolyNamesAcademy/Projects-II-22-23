@@ -9,13 +9,6 @@ public class speciesInfo {
     public String family = "";
     public String origin = "";
     public String climate = "";
-    public double [] tempMax;
-    public double [] tempMin;
-    public String idealLight = "";
-    public String toleratedLight = "";
-    public String watering = "";
-    public String pests = "";
-    public String diseases;
     public String imgUrl = "";
     public String description = "";
 
@@ -33,27 +26,6 @@ public class speciesInfo {
     }
     public void setClimate(String info){
         climate = info;
-    }
-    public void setTempMax(double [] temp){
-        tempMax = temp;
-    }
-    public void setTempMin(double [] temp){
-        tempMin = temp;
-    }
-    public void setIdealLight(String light){
-        idealLight = light;
-    }
-    public void setToleratedLight(String light){
-        toleratedLight = light;
-    }
-    public void setWatering(String info){
-        watering = info;
-    }
-    public void setPests(String info){
-        pests = info;
-    }
-    public void setDiseases(String info){
-        diseases = info;
     }
     public void setImgUrl(String info){
         imgUrl = info;
@@ -77,32 +49,11 @@ public class speciesInfo {
     public String getClimate(){
         return climate;
     }
-    public String getToleratedLight(){
-        return toleratedLight;
-    }
-    public String getIdealLight(){
-        return idealLight;
-    }
-    public String getWatering(){
-        return watering;
-    }
-    public String getPests(){
-        return pests;
-    }
-    public String getDiseases(){
-        return diseases;
-    }
     public String getImgUrl(){
         return imgUrl;
     }
     public String getDescription(){
         return description;
-    }
-    public double [] getTempMax(){
-        return tempMax;
-    }
-    public double [] getTempMin(){
-        return tempMin;
     }
 
 }
