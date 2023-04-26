@@ -54,11 +54,11 @@ public class MainController {
 		return "uploadSuccess";
 	}
 
-	@GetMapping ("/delete") // delete testing, works (just need to implement button)
-	public String delete(Model m){
-		sqlDB.deletePosts(6);
+	@PostMapping ("/delete") // delete testing, works (just need to implement button)
+	public String delete(Integer postID, Model m){
+		sqlDB.deletePosts(postID);
 
-		return "index";
+		return "/feed";
 	}
 
 	@GetMapping("/feed")

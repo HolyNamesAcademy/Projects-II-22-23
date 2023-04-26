@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+div.absolute {
+
+  position: absolute;
+  background-color: red;
+  width: 70px;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div>Delete Post</div>
+<button class="button" onclick="() => deletePosts()">Delete Post</button>
+<script>
+        function deletePosts(){
+        this.getPostID.deletePosts();
+        } </script>
+</body>
+</html>
+
+<!--
+position: absolute
+div vs div.absolute // https://www.w3schools.com/css/tryit.asp?filename=trycss_position_absolute
+line 5 & 7 is new line, everything below it is og button code
+-->
+
+
+
+<!--
+button5 {
+background-color: red;
+width: 85px;
+font-size: 15px;
+padding-top: 10px;
+padding-right: 10px;
+padding-bottom: 10px;
+padding-left: 10px;
+border-radius: 8px;
+color: white;
+cursor: pointer;
+}
+
+button5:hover {
+background-color: #4CAF50;
+color: white;
+}
+
+<button id="ID">Delete Post</button>
+<button class="button button5" onclick="deletePosts();">Delete Post</button>
+<script>
+        function deletePosts(){
+        this.getPostID.deletePosts();
+        } </script>
+
+        button {
+  background-color: blue;
+  width: 200px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 3px solid yellow;
+  color: white;
+  cursor: pointer;
+}
+-->

@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        function deletePosts(postID){
+        this.getPostID.deletePosts();
+        } </script>
     <style>
         h1 {
         color: rgb(4, 74, 4);
@@ -111,6 +115,7 @@
         <h2 th:text = "${plantPost.getPlantName()}">Plant Name </h2>
         <img th:src = "${plantPost.getPhotoUrl()}" >
         <h3 th:text = "${plantPost.getCaption()}">Caption </h3>
+        <form action="#" th:action="@{/delete}" method="post" th:object="${plantPost.getPostID()}"> <button class="button" type ="submit" >Delete Post</button> </form>
     </div>
 
     <div> <h2> Post 2 </h2></div>
@@ -121,4 +126,25 @@
 
 </div>
 </body>
+</html>
+
+<html>
+<head>
+    <style>
+div.absolute {
+
+  position: absolute;
+  background-color: red;
+  width: 70px;
+  font-size: 15px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+</style>
+</head>
 </html>
