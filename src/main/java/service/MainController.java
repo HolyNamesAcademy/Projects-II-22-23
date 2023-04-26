@@ -4,11 +4,10 @@ import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 @Controller
@@ -35,9 +34,9 @@ public class MainController {
 		//plantAPi.api();
 		//return "Hello";
 	//}
-	@GetMapping("/api")
-	public void api(){
-
+	@GetMapping("/displayapi")
+	public String api(){
+	return "displayapi";
 	}
 	//public void fillApi() throws IOException, InterruptedException, ParseException {
 		//ArrayList<speciesInfo> plants = dataReader.jsonReaderGetAll(plantAPi.getAll());
@@ -59,5 +58,17 @@ public class MainController {
 	HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
 	public respHttpResponse<String> getResponse() {return response;}
 	 */
+	/*@RequestMapping(value = "/api", method = RequestMethod.POST)
+	public ArrayList<String> submit(@ModelAttribute("search") String name){
+	speciesInfo plant = sqlDB.selectSingleSpecies(name);
+	ArrayList<String> plantInfo = null;
+	plantInfo.add(plant.getCommonName());
+	plantInfo.add(plant.getLatinName());
+	plantInfo.add(plant.getFamily());
+	plantInfo.add(plant.getClimate());
+	plantInfo.add(plant.getOrigin());
+	plantInfo.add(plant.getImgUrl());
+	return plantInfo;
+	}*/
 
 }
