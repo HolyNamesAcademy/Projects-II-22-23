@@ -36,10 +36,19 @@ public class MainController {
 		//return "Hello";
 	//}
 	@GetMapping("/api")
-	public void fillApi() throws IOException, InterruptedException, ParseException {
-	ArrayList<speciesInfo> plants = dataReader.jsonReaderGetAll(plantAPi.getAll());
-	sqlDB.insertMultipleSpecies(plants);
+	public void api(){
+
 	}
+	//public void fillApi() throws IOException, InterruptedException, ParseException {
+		//ArrayList<speciesInfo> plants = dataReader.jsonReaderGetAll(plantAPi.getAll());
+		//sqlDB.insertMultipleSpecies(plants);
+	//}
+	//public void testSearch(){
+		//String name = "Janet Craig";
+		//speciesInfo plant;
+		//plant = sqlDB.selectSingleSpecies(name);
+		//System.out.println(plant.getImgUrl() + "\n" + plant.getCommonName() + "\n" + plant.getLatinName() + "\n" + plant.getClimate() + "\n" + plant.getOrigin() +"\n" + plant.getFamily());
+	//}
 	/* function httpGet(Url)
 	{
 		var xmlHttp = new XMLHttpRequest();

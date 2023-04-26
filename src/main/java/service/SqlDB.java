@@ -18,7 +18,7 @@ public class SqlDB {
 
     @Autowired
     public SqlDB(Environment env) {
-        hostName = env.getProperty("db.ostname");
+        hostName = env.getProperty("db.hostname");
         dbName = env.getProperty("db.db_name");
         user = env.getProperty("db.user");
         password = env.getProperty("db.password");
@@ -30,14 +30,13 @@ public class SqlDB {
        try {
            Connection connection = DriverManager.getConnection(connectionUrl);
            Statement statement = connection.createStatement();
-           String query = "INSERT INTO dbo.SpeciesData (SPECIES NAME, LATIN NAME, FAMILY, ORIGIN, CLIMATE, TEMPMAX, TEMPMIN, IDEAL LIGHT, TOLERATED LIGHT, WATERING, PESTS, DISEASES, IMG URL, DESCRIPTION) VALUES (" + speciesInfo.getCommonName() + "," + speciesInfo.getLatinName() + "," + speciesInfo.getFamily() + "," + speciesInfo.getOrigin() + "," + speciesInfo.getClimate() + "," + Arrays.toString(speciesInfo.getTempMax()) + "," + Arrays.toString(speciesInfo.getTempMin()) + "," + speciesInfo.getIdealLight() + "," + speciesInfo.getToleratedLight() + "," + speciesInfo.getWatering() + "," + speciesInfo.getPests() + "," + speciesInfo.getDiseases() + "," + speciesInfo.getImgUrl() + "," + speciesInfo.getDescription() + ")";
+           String query = "INSERT INTO PlantSpeciesData (SPECIES_NAME, LATIN_NAME, FAMILY, ORIGIN, CLIMATE, IMG_URL, DESCRIPTION) \n VALUES (\'" + speciesInfo.getCommonName() + "\', \'" + speciesInfo.getLatinName() + "\', \'" + speciesInfo.getFamily() + "\', \'" + speciesInfo.getOrigin() + "\', \'" + speciesInfo.getClimate() + "\', \'" + speciesInfo.getImgUrl() + "\', \'" + speciesInfo.getDescription() + "\')";
            System.out.println(query);
            statement.executeUpdate(query);
            connection.close();
-           System.out.print("db updated");
+           System.out.println("db updated");
        } catch (SQLException e) {
            System.out.println("error inserting into db");
-           throw new RuntimeException(e);
        }
 
    }
@@ -51,26 +50,21 @@ public class SqlDB {
             Connection connection = DriverManager.getConnection(connectionUrl);
             Statement statement = connection.createStatement();
             speciesInfo plant = new speciesInfo();
-            String query = "SELECT * FROM dbo.SpeciesData WHERE SPECIES NAME = '" + commonName + "';"; //not sure what query to write here
-           ResultSet data = statement.executeQuery(query);
-           double [] tempMax;
-           double [] tempMin;
-           plant.setCommonName(data.getString("SPECIES NAME"));
-           plant.setLatinName(data.getString("LATIN NAME"));
-           plant.setFamily(data.getString("FAMILY"));
-           plant.setOrigin(data.getString("ORIGIN"));
-           plant.setClimate(data.getString("CLIMATE"));
-           tempMax = (double[]) data.getObject("TEMPMAX");
-           tempMin = (double[]) data.getObject("TEMPMIN");
-            plant.setIdealLight(data.getString("IDEAL LIGHT"));
-            plant.setToleratedLight(data.getString("TOLERATED LIGHT"));
-            plant.setWatering(data.getString("WATERING"));
-            plant.setPests(data.getString("PESTS"));
-            plant.setDiseases(data.getString("DISEASES"));
-            plant.setImgUrl(data.getString("IMAGE URL"));
-            plant.setDescription(data.getString("Descriptions"));
+            String query = "SELECT * FROM PlantSpeciesData \n WHERE SPECIES_NAME=\'" + commonName + "\';";
+            ResultSet data = statement.executeQuery(query);
+            while(data.next()) {
+                plant.setCommonName(data.getString(2));
+                plant.setLatinName(data.getString(3));
+                plant.setFamily(data.getString(4));
+                plant.setOrigin(data.getString(5));
+                plant.setClimate(data.getString(6));
+                plant.setImgUrl(data.getString(7));
+                plant.setDescription(data.getString(8));
+            }
+            data.close();
             return plant;
         } catch(SQLException e){
+            System.out.println("Failure to select");
             return null;
         }
    }
